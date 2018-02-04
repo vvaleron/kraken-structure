@@ -3,12 +3,12 @@
   "version": "0.0.1",
   "root": true,
   "scripts": {
-    "build:development": "webpack --config ./config/webpack.config.js --env=development --progress --profile --colors",
-    "build:production": "webpack --config ./config/webpack-production.config.js --env=production --progress --profile --colors",
-    "lint": "./node_modules/.bin/eslint --format codeframe ./{server,app,config}/**/*{config,''}.js",
+    "build:development": "webpack --config ./src/common/webpack/dev.config.js --env=development --progress --profile --colors",
+    "build:production": "webpack --config ./src/common/webpack/prod.config.js --env=production --progress --profile --colors",
+    "lint": "./node_modules/.bin/eslint --format codeframe ./src/{backend, frontend, common}/**/*{src/common,''}.js",
     "pre-push-lint": "npm run -s lint || exit 1",
     "postinstall": "npm run build:production",
-    "start": "node server"
+    "start": "node src/backend"
   },
   "dependencies": {
     "css-loader": "^0.28.0",
@@ -30,6 +30,9 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.9.0",
+    "file-loader": "^1.1.6",
+    "image-webpack-loader": "^4.0.0",
+    "img-loader": "^2.0.1",
     "pre-push": "^0.1.1"
   },
   "pre-push": {

@@ -1,9 +1,9 @@
 const path = require('path');
-const devConfig = require('./webpack.config.js');
+const devConfig = require('./dev.config.js');
 
 const config = Object.assign({}, devConfig, {
   entry: [
-    path.join(__dirname, '/../app/src/main.js'),
+    path.join(__dirname, './../../frontend/app/src/main.js'),
   ],
 });
 

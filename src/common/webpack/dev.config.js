@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const sharedPlugins = require('./sharedPlugins');
+const commonPlugins = require('./common.plugins');
 
 const plugins = [
   new webpack.HotModuleReplacementPlugin(),
@@ -9,18 +9,18 @@ const plugins = [
   }),
 ];
 
-module.exports = {
+const config = {
   devtool: 'eval-source-map',
   entry: [
     'webpack-hot-middleware/client?reload=true',
-    path.join(__dirname, '/../app/src/main.js'),
+    path.join(__dirname, './../../frontend/app/src/main.js'),
   ],
   output: {
-    path: path.join(__dirname, '/../dist/'),
+    path: path.join(__dirname, '/../../../build/'),
     filename: '[name].bundle.js',
     publicPath: '/',
   },
-  plugins: plugins.concat(sharedPlugins),
+  plugins: plugins.concat(commonPlugins),
   module: {
     rules: [{
       exclude: /node_modules/,
@@ -43,10 +43,13 @@ module.exports = {
           loader: 'sass-loader',
           options: {
             sourceMap: true,
-            includePaths: [path.join(__dirname, '/../app/src/styles/')],
+            includePaths: [path.join(__dirname, '/../../frontend/app/src/assets/styles/')],
           },
         },
       ],
-    }],
+    }
+    ]
   },
 };
+
+module.exports = config;

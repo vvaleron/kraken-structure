@@ -1,9 +1,8 @@
-import './styles/base.scss';
+import './assets/styles/base.scss';
 
 class Main {
   constructor() {
     this.count = 0;
-
     this.count += 1;
   }
 
@@ -16,6 +15,7 @@ class Main {
     const result = 'get howMuch: ';
     return result + this.count;
   }
+
 }
 
 console.info('Tada! It works. Now build something awesome.');
