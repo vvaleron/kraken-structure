@@ -13,7 +13,7 @@ const config = {
   devtool: 'eval-source-map',
   entry: [
     'webpack-hot-middleware/client?reload=true',
-    path.join(__dirname, './../../frontend/app/src/main.js'),
+    path.join(__dirname, './../../frontend/app/main.js'),
   ],
   output: {
     path: path.join(__dirname, '/../../../build/'),
@@ -43,10 +43,20 @@ const config = {
           loader: 'sass-loader',
           options: {
             sourceMap: true,
-            includePaths: [path.join(__dirname, '/../../frontend/app/src/assets/styles/')],
+            includePaths: [path.join(__dirname, '/../../frontend/assets/styles/')],
           },
         },
       ],
+    },
+    {
+      test: /\.(png|jp(e*)g|svg)$/,
+      use: [{
+        loader: 'url-loader',
+        options: {
+          limit: 8000, // Convert images < 8kb to base64 strings
+          name: 'images/[hash]-[name].[ext]'
+        }
+      }]
     }
     ]
   },

@@ -1,9 +1,17 @@
-import './assets/styles/base.scss';
+import assets from './../assets';
+
+const assignImages = () => {
+  const releaseKrakenImg = document.getElementById('releaseKraken');
+
+  releaseKrakenImg.src = assets.images.releaseKraken;
+};
 
 class Main {
   constructor() {
     this.count = 0;
     this.count += 1;
+
+    assignImages();
   }
 
   ask() {
