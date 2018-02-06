@@ -13,7 +13,7 @@ const config = {
   devtool: 'eval-source-map',
   entry: [
     'webpack-hot-middleware/client?reload=true',
-    path.join(__dirname, './../../frontend/app/main.js'),
+    path.join(__dirname, './../../frontend/admin-panel/main.js'),
   ],
   output: {
     path: path.join(__dirname, '/../../../build/'),

@@ -14,10 +14,10 @@ class Main {
     assignImages();
   }
 
-  ask() {
-    const result = this.howMuch;
-    return result;
-  }
+    ask() {
+      const result = this.howMuch;
+      return result;
+    }
 
   get howMuch() {
     const result = 'get howMuch: ';
